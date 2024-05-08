@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .confirmation-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function getQueryParameter(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function printPage() {
+            window.print(); // Open the print dialog
+        }
+    </script>
+</head>
+<body>
+    <div class="confirmation-container">
+        <h2>Booking Confirmation</h2>
+        <p>Thank you for booking with us! Here's your booking information:</p>
+        
+        <!-- Display the form data from query parameters -->
+        <p><strong>Full Name:</strong> <span id="fullname"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Phone:</strong> <span id="phone"></span></p>
+        <p><strong>Number of Seats:</strong> <span id="numSeats"></span></p>
+        <p><strong>Travel Date:</strong> <span id="travelDate"></span></p>
+        <p><strong>Class:</strong> <span id="class"></span></p>
+
+        <!-- Print button -->
+        <button class="btn-primary" onclick="printPage()">Print Confirmation</button>
+    </div>
+
+    <script>
+        // Display the data by retrieving the query parameters
+        document.getElementById("fullname").textContent = getQueryParameter("fullname");
+        document.getElementById("email").textContent = getQueryParameter("email");
+        document.getElementById("phone").textContent = getQueryParameter("phone");
+        document.getElementById("numSeats").textContent = getQueryParameter("numSeats");
+        document.getElementById("travelDate").textContent = getQueryParameter("travelDate");
+        document.getElementById("class").textContent = getQueryParameter("class");
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train Ticket Reservation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add CSS styles for background and other custom elements */
+        body {
+            font-family: Arial, sans-serif; /* Set default font */
+            padding: 20px; /* Padding around the page */
+            background-image: url("IMG.png"); /* Add background image */
+            background-repeat: no-repeat; /* Prevent repeating */
+            background-attachment: fixed; /* Keep image fixed when scrolling */
+            background-size:; /* Ensure image covers the entire background */
+            background-position: center; /* Center the background image */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for readability */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+
+        .btn-success {
+            background-color: #28a745; /* Custom success button color */
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-success:hover {
+            background-color: #218838; /* Darker on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Train Ticket Reservation</h1>
+        
+        <!-- Search Form -->
+        <form id="trainSearchForm" class="my-4">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="fromStation">From</label>
+                    <input type="text" class="form-control" id="fromStation" placeholder="Enter starting station" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="toStation">To</label>
+                    <input type="text" class="form-control" id="toStation" placeholder="Enter destination station" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="travelDate">Travel Date</label>
+                    <input type="date" class="form-control" id="travelDate" required>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="searchTrains()">Search Trains</button>
+        </form>
+        
+        <!-- Available Trains -->
+        <div id="availableTrains">
+            <!-- This section will be filled with available trains after searching -->
+        </div>
+    </div>
+
+    <script>
+    // Dummy data for available trains
+    const trainData = [
+        {
+            trainNumber: "12345",
+            trainName: "Express Train",
+            departureTime: "10:00 AM",
+            arrivalTime: "2:00 PM",
+            status: "On Time"
+        },
+        {
+            trainNumber: "67890",
+            trainName: "Superfast Train",
+            departureTime: "1:00 PM",
+            arrivalTime: "5:00 PM",
+            status: "Delayed"
+        },
+        {
+            trainNumber: "472209",
+            trainName: "Vandebharat",
+            departureTime: "4:00 PM",
+            arrivalTime: "5:00 PM",
+            status: "Running"
+        }
+    ];
+
+    function searchTrains() {
+        const from = document.getElementById("fromStation").value;
+        const to = document.getElementById("toStation").value;
+        const date = document.getElementById("travelDate").value;
+        
+        const availableTrainsContainer = document.getElementById("availableTrains");
+        availableTrainsContainer.innerHTML = "";
+
+        if (!from || !to || !date) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        // Add train cards with a Reserve button that redirects to the booking page
+        trainData.forEach(train => {
+            const trainCard = document.createElement("div");
+            trainCard.className = "card mb-3";
+
+            trainCard.innerHTML = `
+                <div class="card-body">
+                    <h5 class="card-title">${train.trainName} (${train.trainNumber})</h5>
+                    <p>Departure: ${train.departureTime} | Arrival: ${train.arrivalTime}</p>
+                    <p>Status: ${train.status}</p>
+                    <button class="btn btn-success" onclick="reserveTicket('${train.trainNumber}', '${from}', '${to}', '${date}')">Reserve</button>
+                </div>
+            `;
+
+            availableTrainsContainer.appendChild(trainCard);
+        });
+    }
+
+    // Function to handle the reservation and redirect to the booking form
+    function reserveTicket(trainNumber, from, to, date) {
+        const printoutUrl = `ticketbookingp-page.html?trainNumber=${trainNumber}&from=${from}&to=${to}&date=${date}`; // Construct URL with details
+        window.location.href = printoutUrl; // Redirect to the booking page
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validated Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="label">User Login</h1>
+        <form class="login_form" action="trainsearch.html" method="post" name="form" onsubmit="return validateForm()">
+            <div class="font">Email or Phone</div>
+            <input autocomplete="off" type="text" name="email" id="email">
+            <div id="email_error" class="error">Please fill up your Email or Phone</div>
+            <div class="font font2">Password</div>
+            <input type="password" name="password" id="password">
+            <div id="pass_error" class="error">Please fill up your Password</div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+    function validateForm() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let emailError = document.getElementById("email_error");
+        let passError = document.getElementById("pass_error");
+
+        emailError.style.display = "none";
+        passError.style.display = "none";
+
+        if (email === "") {
+            emailError.style.display = "block";
+            return false;
+        }
+
+        if (password === "") {
+            passError.style.display = "block";
+            return false;
+        }
+
+        return true; // Continue to the booking page
+    }
+    </script>
+
+    <style>
+    .container {
+        padding: 20px;
+        text-align: center;
+    }
+    .error {
+        color: red;
+        display: none; /* Hide error messages by default */
+    }
+    </style>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Railway Ticket Booking - Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
+    <link rel="stylesheet" type="text/css" href="newregister.css"> <!-- External CSS -->
+    <script src="newregister.js"></script> <!-- External JavaScript -->
+</head>
+<body>
+
+<div class="container mt-5"> <!-- Adding Bootstrap margin-top -->
+    <h1 class="text-center">Register for Railway Ticket Booking</h1> <!-- Centered heading -->
+    <p class="text-center">Please fill in this form to create an account.</p> <!-- Centered subheading -->
+    
+    <form id="registrationForm" onsubmit="return validateForm()"> <!-- Form with validation -->
+        <!-- Full Name -->
+        <div class="mb-3"> <!-- Bootstrap class for margin-bottom -->
+            <label for="fullName" class="form-label">Full Name:</label> <!-- Bootstrap class for form label -->
+            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name" class="form-control"> <!-- Bootstrap class for form control -->
+        </div>
+        
+        <!-- Email Address -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email" class="form-control">
+        </div>
+        
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter a secure password" class="form-control">
+        </div>
+        
+        <!-- Confirm Password -->
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password" class="form-control">
+        </div>
+        
+        <!-- Phone Number -->
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="Enter your phone number" class="form-control">
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Register</button> <!-- Bootstrap class for button -->
+    </form>
+    <script>
+        function redirectToNextPage() {
+            window.location.href = "file:///C:/Users/Admin/OneDrive/Desktop/project%20final/ticketbookingp-page.html"; // Redirect to target page
+        }
+    </script>
+    
+    <p class="text-center">Already have an account? <a href="index.html">Login here</a>.</p>
+</div>
+
+</body>
+</html>

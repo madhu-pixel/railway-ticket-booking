@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Railway Reservation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the navigation bar, carousel, and other elements */
+        .navbar {
+            background-color: #130410; /* Dark gray background */
+        }
+
+        .navbar-brand {
+            color: white !important; /* White text for branding */
+        }
+
+        .logo {
+            height: 40px; /* Correct height for logo */
+            width: auto; /* Auto-width to maintain aspect ratio */
+        }
+
+        .carousel img {
+            width: 100%; /* Full-width carousel images */
+            height: 500px; /* Fixed height for carousel images */
+            object-fit: cover; /* Ensure images cover the area without distortion */
+        }
+
+        .marquee {
+            background-color: #007bff; /* Blue background for marquee */
+            color: white; /* White text for marquee */
+            padding: 10px; /* Padding around the marquee */
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #343a40; /* Dark gray background for footer */
+            color: white; /* White text for footer */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar with Logo -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://th.bing.com/th/id/OIP.u8WxIWJNTN9Ked6UTQkCwgHaFj?w=227&h=180&c=7&r=0&o=5&pid=1.7" alt="Railway Logo" class="logo">
+            Railway Reservation System
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="pnrstatus.html">PNR STATUS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">LOGIN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="newregister.html">REGISTER</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Marquee -->
+<div class="marquee">
+    <marquee behavior="scroll" direction="left">
+        
+        Welcome to the Railway Reservation System. Book tickets, check schedules, and enjoy a seamless travel experience!
+    </marquee>
+</div>
+
+<!-- Bootstrap Carousel -->
+<div class="container mt-4">
+    <div id="railwayCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://www.logolynx.com/images/logolynx/5f/5f6c8988cbae2f7b069630a13720a4d9.jpeg" alt="Train 1">
+            </div>
+            <div class="carousel-item">
+                <img src="IMG.png" alt="Train 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://th.bing.com/th/id/OIP.xR7CJWbgBH3Y9Qapy_chxAHaEK?pid=ImgDet&w=182&h=102&c=7" alt="Train 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#railwayCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#railwayCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2024 Railway Reservation System. All rights reserved.</p>
+</div>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

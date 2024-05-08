@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Railway Ticket Payment Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0f0f0 0%, #d0d0d0 100%); /* Updated gradient background */
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .payment-card {
+      background: #6df352; /* White background for the card */
+      padding: 2rem; /* Padding inside the card */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+      border: 1px solid #f30c0c; /* Border for a clean look */
+      max-width: 500px; /* Set a max width */
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem; /* Extra space between form groups */
+    }
+
+    .btn {
+      width: 100%; /* Button takes full width */
+      background-color: #007bff; /* Primary color */
+      border: none; /* No border */
+      color: white; /* White text */
+      padding: 0.75rem; /* Padding for the button */
+      border-radius: 5px; /* Rounded corners */
+      transition: background-color 0.3s; /* Smooth hover effect */
+    }
+
+    .btn:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-card"> <!-- This is the payment card -->
+    <h2 class="text-center">Railway Ticket Payment</h2> <!-- Centered title -->
+    <form id="paymentForm" onsubmit="return handleSubmit(event)"> <!-- Form handling logic -->
+      <!-- Passenger Information -->
+      <div class="form-group">
+        <label for="name">Passenger Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter passenger's name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+      </div>
+
+      <!-- Payment Information -->
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" class="form-control" id="cardNumber" name="cardNumber" pattern="\d{16}" placeholder="16-digit card number" required>
+      </div>
+
+      <div class="form-group row"> <!-- Two columns for expiry date and CVV -->
+        <div class="col-md-6">
+          <label for="expiryDate">Expiry Date</label>
+          <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+        </div>
+        <div class="col-md-6">
+          <label for="cvv">CVV</label>
+          <input type="password" class="form-control" id="cvv" pattern="\d{3}" placeholder="3-digit CVV" required>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn">Submit Payment</button>
+    </form>
+  </div>
+
+  <!-- JavaScript for form handling -->
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const cardNumber = document.getElementById("cardNumber").value;
+      const expiryDate = document.getElementById("expiryDate").value;
+
+      // Validate card number and expiry date
+      if (cardNumber.length !== 16) {
+        alert("Card number must be 16 digits.");
+        return false;
+      }
+
+      if (!/^\d{2}\/\d{2}$/.test(expiryDate)) {
+        alert("Expiry date must be in MM/YY format.");
+        return false;
+      }
+
+      // Simulate successful submission
+      setTimeout(() => {
+        window.location.href = "file:///C:/Users/Admin/OneDrive/Desktop/project%20final/confirm.html"; // Redirect to confirmation page
+      }, 1000);
+
+      return true;
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+/* Basic styling for the registration page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.container {
+    width: 50%; /* Center the container */
+    margin: auto;
+    background-color: rgb(22, 193, 199); /* White background for the form */
+    padding: 20px;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+h1 {
+    text-align: center; /* Centered heading */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Spacing between form elements */
+}
+
+label {
+    display: block; /* Labels on separate lines */
+    font-weight: bold; /* Bold labels */
+}
+
+input {
+    width: 100%; /* Full-width input fields */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%; /* Full-width button */
+    padding: 10px;
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #f00606; /* Darker green on hover */
+}
+
+a {
+    color: #f70707; /* Blue links */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

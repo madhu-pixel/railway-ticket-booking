@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train Reservation Chart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .chart-container {
+            padding: 20px;
+        }
+
+        .seat {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .seat.booked {
+            background-color: lightgray;
+        }
+
+        .seat.reserved {
+            background-color: lightcoral;
+        }
+
+        .seat.available {
+            background-color: lightgreen;
+        }
+
+        .seat-details {
+            display: none;
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .seat-details.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container chart-container">
+        <h2>Train Reservation Chart</h2>
+        <p>Click on a seat to view details.</p>
+
+        <!-- Example chart: 3 rows of 10 seats each -->
+        <div class="row">
+            <div class="col-md-4 seat available" data-seat="1A" data-passenger="John Doe" data-status="Available">1A</div>
+            <div class="col-md-4 seat booked" data-seat="1B" data-passenger="Jane Smith" data-status="Booked">1B</div>
+            <div class="col-md-4 seat reserved" data-seat="1C" data-passenger="Paul Johnson" data-status="Reserved">1C</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 seat booked" data-seat="2A" data-passenger="Robert Brown" data-status="Booked">2A</div>
+            <div class="col-md-4 seat reserved" data-seat="2B" data-passenger="Emily Davis" data-status="Reserved">2B</div>
+            <div class="col-md-4 seat available" data-seat="2C" data-passenger="Samantha Green" data-status="Available">2C</div>
+        </div>
+        
+        <!-- Seat Details -->
+        <div class="seat-details" id="seatDetails">
+            <h4>Seat Details</h4>
+            <p><strong>Seat Number:</strong> <span id="seatNumber"></span></p>
+            <p><strong>Passenger Name:</strong> <span id="passengerName"></span

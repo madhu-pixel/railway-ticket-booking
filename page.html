@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train Ticket Booking Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap for styling -->
+    <style>
+        body{
+            background-image: url("image.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .content {
+            padding: 50px; /* Spacing for content */
+            color: white; /* Text color for contrast */
+        }
+        /* Container for the form */
+        .booking-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px; /* Increased width for more horizontal space */
+            margin: 50px auto; /* Center the container */
+        }
+
+        /* Flexbox configuration for form rows */
+        .form-row {
+            display: flex; /* Flexbox to align elements */
+            gap: 10px; /* Space between elements */
+        }
+
+        /* Style for form groups */
+        .form-group {
+            flex: 1; /* Flex to ensure equal width */
+            margin-bottom: 15px; /* Consistent spacing between rows */
+        }
+
+        /* Style for the submit button */
+        .btn-primary {
+            background-color: #4CAF50; /* Green background */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px;
+            width: 100%; /* Full width */
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049; /* Darker on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="booking-container">
+    <h2 class="text-center">Book a Train Ticket</h2>
+    <form action="/submit-ticket" method="POST"> <!-- Server endpoint for form submission -->
+        <!-- First row with aligned fields -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+        </div>
+
+        <!-- Second row with aligned fields -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="departure">Departure Station:</label>
+                <input type="text" class="form-control" id="departure" name="departure" required>
+            </div>
+            <div class="form-group">
+                <label for="arrival">Arrival Station:</label>
+                <input type="text" class="form-control" id="arrival" name="arrival" required>
+            </div>
+        </div>
+
+        <!-- Third row with aligned fields -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="date">Travel Date:</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="class">Class:</label>
+                <select class="form-control" id="class" name="class" required>
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                    <option value="first-class">First Class</option>
+                     <option value="AC 2 TIER (2A)">AC 2 TIER (2A)</option>
+                      <option value="AC First Class (1A)">AC First Class (1A)</option>
+                       <option value="AC 3 Tier (3A)">AC 3 Tier (3A)</option>
+                        <option value="Sleeper (SL)">Sleeper (SL)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn-primary">Book Ticket</button>
+        
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

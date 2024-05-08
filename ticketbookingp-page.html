@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train Ticket Booking Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap for styling -->
+     <script src="booking.js"></script> <!-- Link to the external JavaScript file -->
+    <style>
+        /* Add CSS styles for background and other custom elements */
+        body {
+            background-image: url("https://gumlet.assettype.com/swarajya/2022-02/e1caf4d5-210c-40ee-8a3e-bc5e2e9a8fb6/Vande_Bharat_train_image.png?q=75&auto=format%2Ccompress&w=1200");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif; /* Set default font */
+        }
+
+        .booking-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        /* Style for navigation bar */
+        .navbar {
+            background-color: #343a40; /* Dark background */
+        }
+
+        .navbar a {
+            color: white; /* White text color for links */
+        }
+
+        .navbar a:hover {
+            color: #ddd; /* Light gray on hover */
+        }
+
+        /* Style for modal content */
+        .modal-content {
+            background-color: white; /* Background for the modal */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .modal-header {
+            border-bottom: none; /* No border at the bottom */
+        }
+
+        .modal-footer {
+            border-top: none; /* No border at the top */
+        }
+
+        /* Flexbox configuration for form rows */
+        .form-row {
+            display: flex; /* Align elements horizontally */
+            gap: 10px; /* Space between elements */
+        }
+
+        /* Style for form groups */
+        .form-group {
+            flex: 1; /* Flex to ensure equal width */
+            margin-bottom: 15px; /* Consistent spacing between rows */
+        }
+
+        /* Style for the submit button */
+        .btn-primary {
+            background-color: #4CAF50; /* Green background */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px;
+            width: 100%; /* Full width */
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049; /* Darker on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar with a pop-up modal trigger -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">IRCTC</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="payment.html">payment details<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="chart.html">Chart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contact</a> <!-- Trigger for pop-up modal -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Pop-up modal for the "Contact" navigation item -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>For any inquiries, please contact us at:</p>
+                    <ul>
+                        <li>Email: support@irctc.com</li>
+                        <li>Phone: +91-12</li>
+                        <li>Customer Care Numbers : 14646 (Language: Hindi and English)
+For Railway tickets booked through IRCTC
+General Information
+I-tickets/e-tickets : care@irctc.co.in
+For Cancellation E-tickets : etickets@irctc.co.in
+For IRCTC iMudra Prepaid Wallet & Card : imudracare@irctc.co.in
+
+
+For IRCTC SBI Card users who do not receive the card within 01 month from the date of application kindly call on the Railway SBI Card Helpline nos. at 0124-39021212 or 18001801295 (if calling from BSNL/MTNL line) or send email to customercare@sbicard.com. For other queries on your IRCTC SBI card account, kindly email at loyaltyprogram@irctc.co.in
+Registered Office / Corporate Office
+Indian Railway Catering and Tourism Corporation Ltd.,
+B-148, 11th Floor, Statesman House,
+Barakhamba Road, New Delhi 110001</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking form container -->
+    <div class="booking-container">
+        <h2 class="text-center">Book a Train Ticket</h2>
+        <form action="payment.html" method="POST"> <!-- Server endpoint for form submission -->
+            <!-- First row with aligned fields -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div form-group>
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+            </div>
+
+            <!-- Second row with aligned fields -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone:</label> <!-- Capitalized label -->
+                    <!-- Changed 'type' to 'tel' and removed 'number' attribute -->
+                    <input type="tel" class="form-control" id="phone" name="phone" pattern="\d{10}" maxlength="10"  required>
+                    <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+                </div>
+            
+                <div class="form-group">
+                    <label for="no of seats">no of seats:</label>
+                    <input type="text" class="form-control" id="no of seats" name="no of seats"  pattern="\d{2}" maxlength="2" required>
+                    <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+                </div>
+            </div>
+
+            <!-- Third row with aligned fields -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Travel Date:</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                
+
+                    <!-- Gender Selection -->
+                    <div class="form-row">
+    <div class="form-group col-md-6"> <!-- Add column structure -->
+        <label for="gender">Gender:</label>
+        <div>
+            <div class="form-check form-check-inline"> <!-- Inline radio buttons -->
+                <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+                <label class="form-check-label" for="genderMale">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female" required>
+                <label class="form-check-label" for="genderFemale">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="genderOther" value="Other" required>
+                <label class="form-check-label" for="genderOther">Other</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+                <div class="form-group">
+                    <label for="class">Class:</label>
+                    <select class="form-control" id="class" name="class" required>
+                        <option value="economy">Economy</option>
+                        <option value="business">Business</option>
+                        <option value="first-class">First Class</option>
+                         <option value="AC 2 TIER (2A)">AC 2 TIER (2A)</option>
+                          <option value="AC First Class (1A)">AC First Class (1A)</option>
+                           <option value="AC 3 Tier (3A)">AC 3 Tier (3A)</option>
+                            <option value="Sleeper (SL)">Sleeper (SL)</option>
+                    </select>
+                </div>
+            </div>
+</div>
+            <!-- Submit button -->
+            <button type="submit" class="btn-primary">Book Ticket</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
